@@ -1,0 +1,354 @@
+/* ========================= 
+   RESET & BASE
+   ========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0e0e0e;
+  color: #f5f5f5;
+}
+
+/* =========================
+   HOME
+   ========================= */
+
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+}
+
+.home-inner {
+  max-width: 720px;
+}
+
+.home-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  color: #777;
+  margin-bottom: 28px;
+  display: block;
+}
+
+.home-title {
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0 0 32px;
+}
+
+.home-text {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #b5b5b5;
+  max-width: 600px;
+}
+
+.home-cta {
+  margin-top: 56px;
+  padding: 20px 52px;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid #f5f5f5;
+  background: transparent;
+  color: #f5f5f5;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease;
+}
+
+.home-cta:hover {
+  background: #f5f5f5;
+  color: #0e0e0e;
+  border-color: #f5f5f5;
+  transform: translateY(-1px);
+}
+
+.home-meta {
+  margin-top: 28px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: #777;
+}
+
+/* =========================
+   TEST
+   ========================= */
+
+.test {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 100px 20px;
+}
+
+.test small {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: #777;
+  margin-bottom: 18px;
+  display: block;
+}
+
+.test-progress {
+  height: 2px;
+  background: #222;
+  margin-bottom: 48px;
+}
+
+.test-progress span {
+  display: block;
+  height: 100%;
+  background: #f5f5f5;
+}
+
+.test h2 {
+  font-size: 30px;
+  margin-bottom: 38px;
+}
+
+.test-options {
+  display: grid;
+  gap: 16px;
+}
+
+.test-option {
+  padding: 20px 26px;
+  border: 1px solid #222;
+  background: transparent;
+  color: #f5f5f5;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.test-option:hover {
+  border-color: #f5f5f5;
+}
+
+/* =========================
+   RESULTADOS
+   ========================= */
+
+.result {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 90px;
+}
+
+/* PERFIL */
+
+.result-profile.compact {
+    margin-bottom: 72px;   /* más aire antes del perfume */
+}
+
+
+.result-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: #777;
+  display: block;
+  margin-bottom: 14px;
+}
+/* Familia olfativa (perfil) */
+.profile-family {
+  margin: 6px 0 18px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: #9a9a9a;
+}
+
+.profile-family strong {
+  font-weight: 500;
+  color: #f0f0f0;
+}
+
+.result-description {
+  font-size: 16px;
+  line-height: 1.75;
+  max-width: 720x;
+  color: #b5b5b5;
+  margin-top: 12px;
+}
+
+.profile-text {
+  margin-bottom: 0;
+}
+
+/* PERFUME PRINCIPAL */
+
+.result-main {
+  text-align: center;
+  margin-bottom: 90px;
+}
+
+.result-label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: #777;
+}
+
+.result-main-image {
+  width: 170px;
+  margin: 20px auto;
+  display: block;
+}
+
+.result-main-name {
+  font-size: 32px;
+  margin: 0 0 22px;
+  font-weight: 600;
+}
+
+.result-main-separator {
+  color: #555;
+}
+
+.result-main-brand-inline {
+  font-size: 18px;
+  font-weight: 400;
+  color: #999;
+}
+
+/* CTA PRINCIPAL */
+
+.result-main-cta {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 10px 18px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #0e0e0e;
+  background: #f5f5f5;
+  border-radius: 2px;
+}
+
+.result-main-cta:hover {
+  opacity: 0.9;
+}
+
+/* =========================
+   ALTERNATIVOS
+   ========================= */
+
+.result-alternatives {
+  margin-top: 48px;
+}
+
+.result-alt-title {
+  font-size: 19px;
+  margin-bottom: 22px;
+}
+
+.result-alt-grid.aligned {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 44px;
+}
+
+.alt-card.aligned {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Imagen */
+
+.alt-image {
+  width: 88px;
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.alt-text {
+  max-width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Nombre (ancla de alineación) */
+
+.alt-text h4 {
+  margin: 0 0 6px;
+  font-weight: 600;
+  line-height: 1.25;
+  min-height: 52px; /* clave para alinear */
+  text-align: center;
+}
+
+.alt-separator {
+  color: #555;
+}
+
+.alt-brand-inline {
+  font-weight: 400;
+  color: #888;
+}
+
+/* Descripción (aire reducido, limpio) */
+
+.alt-description {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: #b5b5b5;
+  margin: 0 0 12px;
+  opacity: 0.85;
+}
+
+/* CTA alternativos */
+
+.alt-cta {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #f5f5f5;
+  border-bottom: 1px solid #444;
+  padding-bottom: 3px;
+}
+
+.alt-cta:hover {
+  border-bottom-color: #777;
+}
+
+/* =========================
+   REPETIR TEST
+   ========================= */
+
+.result-repeat {
+  margin-top: 40px;
+  padding-top: 28px;
+  text-align: center;
+  border-top: 1px solid #222;
+}
+
+.repeat-cta {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+.result-family {
+  font-size: 15px;
+  color: #e6e6e6;
+  margin: 10px 0 22px;
+}
+
+.result-family strong {
+  font-weight: 500;
+  color: #ffffff;
+}
