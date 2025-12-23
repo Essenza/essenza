@@ -1,35 +1,40 @@
 // src/pages/HomePage.tsx
-type Props = {
-  onStart: () => void;
-};
+import { useNavigate } from "react-router-dom";
 
-export default function HomePage({ onStart }: Props) {
+export default function HomePage() {
+  const navigate = useNavigate();
+
+  function handleSelectGender(value: "hombre" | "mujer") {
+    localStorage.setItem("gender", value);
+    navigate(value === "hombre" ? "/hombre" : "/mujer");
+  }
+
   return (
     <main className="home">
       <div className="home-inner">
         <span className="home-eyebrow">ESSENZA</span>
 
         <h1 className="home-title">
-          No eliges un perfume.
-          <br />
-          Dejas una huella.
+          ¿Para quién es tu perfume?
         </h1>
 
-        <p className="home-text">
-          Algunas personas pasan desapercibidas.
-          <br />
-          Otras transforman el ambiente sin decir una palabra.
-          <br />
-          Este test revela en qué lado estás.
-        </p>
+        <div className="gender-choice">
+          <button
+            className="gender-button"
+            onClick={() => handleSelectGender("hombre")}
+          >
+            <strong>HOMBRE</strong>
+            <span>Carácter · Intensidad · Presencia</span>
+          </button>
 
-        <button className="home-cta" onClick={onStart}>
-          Descubrir mi esencia
-        </button>
-
-        <p className="home-meta">
-          Test privado · 6 preguntas · 2 minutos
-        </p>
+          <button
+            className="gender-button"
+            onClick={() => handleSelectGender("mujer")}
+          >
+            <strong>MUJER</strong>
+            <span>Identidad · Atracción · Esencia</span>
+          </button>
+        </div>
       </div>
     </main>
   );

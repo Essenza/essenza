@@ -1,39 +1,37 @@
 // src/App.tsx
 import { Routes, Route, useNavigate } from "react-router-dom";
+
+// Pages
 import HomePage from "./pages/HomePage";
+import HombrePage from "./pages/HombrePage";
+import MujerPage from "./pages/MujerPage";
 import TestPage from "./pages/TestPage";
 import ResultPage from "./pages/ResultPage";
+
 import type { TestResult } from "./logic/profileEngine";
 
 export default function App() {
   const navigate = useNavigate();
 
-  // 👉 Se ejecuta al pulsar “Descubrir mi esencia” en el Home
-  function handleStartTest() {
-    navigate("/test");
-  }
+  // Se ejecuta al finalizar el test
+  const handleTestFinish = (result: TestResult) => {
+    sessionStorage.setItem("essenza-result", JSON.stringify(result));
 
-  // 👉 Se ejecuta al terminar el test
-  function handleTestFinish(result: TestResult) {
-    // Guardamos el resultado para refresh / acceso directo
-    sessionStorage.setItem(
-      "essenza-result",
-      JSON.stringify(result)
-    );
-
-    // Navegamos al resultado
     navigate("/resultado", {
       state: result
     });
-  }
+  };
 
   return (
     <Routes>
-      {/* HOME */}
-      <Route
-        path="/"
-        element={<HomePage onStart={handleStartTest} />}
-      />
+      {/* HOME · Elección */}
+      <Route path="/" element={<HomePage />} /> 
+
+      {/* INTERMEDIA HOMBRE */}
+      <Route path="/hombre" element={<HombrePage />} />
+
+      {/* INTERMEDIA MUJER */}
+      <Route path="/mujer" element={<MujerPage />} />
 
       {/* TEST */}
       <Route
@@ -42,10 +40,7 @@ export default function App() {
       />
 
       {/* RESULTADO */}
-      <Route
-        path="/resultado"
-        element={<ResultPage />}
-      />
+      <Route path="/resultado" element={<ResultPage />} />
     </Routes>
   );
 }

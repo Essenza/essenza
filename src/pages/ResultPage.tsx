@@ -1,11 +1,18 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import type { Perfume } from "../types/perfume";
-import { profiles } from "../data/profiles";
+import { explainPerfume } from "../logic/explanationEngine";
+
+import { profiles as hombreProfiles } from "../data/hombre/profiles";
+import { profiles as mujerProfiles } from "../data/mujer/profiles";
 
 type LocationState = {
   principal: Perfume;
   secundarios: Perfume[];
 };
+
+function resolveImage(path: string) {
+  return `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+}
 
 export default function ResultPage() {
   const location = useLocation();
@@ -33,32 +40,48 @@ export default function ResultPage() {
   }
 
   const { principal, secundarios } = state;
+  const gender = localStorage.getItem("gender");
 
-  // 🔑 PERFIL ACTUAL (TEXTOS NUEVOS)
+  const profiles =
+    gender === "mujer" ? mujerProfiles : hombreProfiles;
+
   const profileData = profiles.find(
     (p) => p.id === principal.profileId
   );
 
   return (
     <main className="result">
-      {/* PERFIL OLFATIVO */}
+      {/* PERFIL (RESUMIDO) */}
       <section className="result-profile compact">
-        <span className="result-eyebrow">TU PERFIL OLFATIVO</span>
-        <p className="result-family">
-  Familia olfativa: <strong>{profileData?.family}</strong>
-</p>
+      <span className="result-eyebrow">ESTA ES TU ESENCIA</span>
 
-        <p className="result-description profile-text">
-          {profileData?.description}
+      {profileData && (
+    <>
+      <p className="result-family">
+        Familia olfativa: <strong>{profileData.family}</strong>
+      </p>
+        <p className="result-method">
+        Te proponemos un perfume principal y dos alternativas afines,
+        para que elijas según el momento o el contexto.
         </p>
+      <details className="profile-more">
+        <summary>Leer descripción de tu perfil</summary>
+        <p className="result-description profile-text">
+          {profileData.description}
+        </p>
+      </details>
+    </>
+      )}
       </section>
 
-      {/* PERFUME PRINCIPAL */}
+
+
+      {/* PERFUME PRINCIPAL (PROTAGONISTA) */}
       <section className="result-main">
         <span className="result-label">RECOMENDADO PARA TI</span>
 
         <img
-          src={principal.imageUrl}
+          src={resolveImage(principal.imageUrl)}
           alt={principal.name}
           className="result-main-image"
         />
@@ -71,15 +94,11 @@ export default function ResultPage() {
           </span>
         </h1>
 
-        <div className="alt-text" style={{ margin: "0 auto" }}>
-          <p className="result-description">
-            {principal.editorial.principal}
-          </p>
+        {/* FRASE EDITORIAL CORTA */}
+        <p className="result-tagline">
+        {principal.tagline}
+        </p>
 
-          <p className="alt-description">
-            {principal.tagline}
-          </p>
-        </div>
 
         <a
           href={principal.amazonUrl}
@@ -87,22 +106,57 @@ export default function ResultPage() {
           rel="noopener noreferrer"
           className="result-main-cta"
         >
-          Ver en Amazon
+          DESCUBRIR ESTE PERFUME
         </a>
+
+        {/* REPETIR TEST (VISIBLE SIN SCROLL) */}
+        <button
+          className="repeat-inline"
+          onClick={() => {
+            sessionStorage.removeItem("essenza-result");
+            navigate("/test");
+          }}
+        >
+          Repetir el test
+        </button>
       </section>
 
-      {/* PERFUMES ALTERNATIVOS */}
+      {/* TEXTO LARGO DEL PERFIL (SECUNDARIO) */}
+      {profileData && (
+        <section className="result-profile-detail">
+          <h2 className="result-section-title">
+            Sobre tu perfil
+          </h2>
+
+          <p className="result-description profile-text">
+            {profileData.description}
+          </p>
+
+          <p className="result-description">
+            {explainPerfume(
+              principal,
+              profileData.name
+            )}
+          </p>
+        </section>
+      )}
+
+      {/* ALTERNATIVOS */}
       {secundarios.length > 0 && (
         <section className="result-alternatives">
           <h2 className="result-alt-title">
-            También encajan contigo
+            Otras opciones en tu línea
           </h2>
+
+          <p className="result-alt-intro">
+            Si algún día buscas una variación sin salir de tu perfil.
+          </p>
 
           <div className="result-alt-grid aligned">
             {secundarios.map((p) => (
               <div key={p.id} className="alt-card aligned">
                 <img
-                  src={p.imageUrl}
+                  src={resolveImage(p.imageUrl)}
                   alt={p.name}
                   className="alt-image"
                 />
@@ -126,40 +180,20 @@ export default function ResultPage() {
                     rel="noopener noreferrer"
                     className="alt-cta"
                   >
-                    VER EN AMAZON
+                    Ver en Amazon
                   </a>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* AVISO AFILIADOS */}
-          <p
-            style={{
-              marginTop: "40px",
-              fontSize: "12px",
-              color: "#777",
-              textAlign: "center"
-            }}
-          >
-            Como afiliados de Amazon, obtenemos ingresos por las
-            compras adscritas que cumplen los requisitos aplicables.
+          <p className="affiliate-note">
+            Como afiliados de Amazon, obtenemos ingresos por
+            las compras adscritas que cumplen los requisitos
+            aplicables.
           </p>
         </section>
       )}
-
-      {/* REPETIR TEST */}
-      <section className="result-repeat">
-        <button
-          className="repeat-cta"
-          onClick={() => {
-            sessionStorage.removeItem("essenza-result");
-            navigate("/test");
-          }}
-        >
-          Repetir el test
-        </button>
-      </section>
     </main>
   );
 }

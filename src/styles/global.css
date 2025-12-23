@@ -146,12 +146,11 @@ body {
   padding: 40px 20px 90px;
 }
 
-/* PERFIL */
+/* PERFIL (SUPERIOR, COMPACTO) */
 
 .result-profile.compact {
-    margin-bottom: 72px;   /* más aire antes del perfume */
+  margin-bottom: 32px; /* reducido para subir el perfume */
 }
-
 
 .result-eyebrow {
   font-size: 11px;
@@ -160,36 +159,33 @@ body {
   display: block;
   margin-bottom: 14px;
 }
-/* Familia olfativa (perfil) */
-.profile-family {
-  margin: 6px 0 18px;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  color: #9a9a9a;
+
+.result-family {
+  font-size: 15px;
+  color: #e6e6e6;
+  margin: 10px 0 22px;
 }
 
-.profile-family strong {
+.result-family strong {
   font-weight: 500;
-  color: #f0f0f0;
+  color: #ffffff;
 }
+
+/* TEXTO GENERAL */
 
 .result-description {
   font-size: 16px;
   line-height: 1.75;
-  max-width: 720x;
+  max-width: 720px;
   color: #b5b5b5;
   margin-top: 12px;
 }
 
-.profile-text {
-  margin-bottom: 0;
-}
-
-/* PERFUME PRINCIPAL */
+/* PERFUME PRINCIPAL (HÉROE) */
 
 .result-main {
   text-align: center;
-  margin-bottom: 90px;
+  margin-bottom: 56px; /* reducido */
 }
 
 .result-label {
@@ -199,14 +195,14 @@ body {
 }
 
 .result-main-image {
-  width: 170px;
-  margin: 20px auto;
+  width: 190px;              /* aumentado */
+  margin: 16px auto 12px;    /* más compacto */
   display: block;
 }
 
 .result-main-name {
   font-size: 32px;
-  margin: 0 0 22px;
+  margin: 0 0 18px;
   font-weight: 600;
 }
 
@@ -239,6 +235,35 @@ body {
   opacity: 0.9;
 }
 
+/* REPETIR TEST INLINE (SECUNDARIO) */
+
+.repeat-inline {
+  margin-top: 14px;
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.repeat-inline:hover {
+  color: #fff;
+}
+
+/* PERFIL DETALLADO (SECUNDARIO, CON SCROLL) */
+
+.result-profile-detail {
+  margin-top: 64px;
+  opacity: 0.85;
+}
+
+.profile-text {
+  font-size: 15px; /* reducido */
+  line-height: 1.7;
+}
+
 /* =========================
    ALTERNATIVOS
    ========================= */
@@ -249,7 +274,13 @@ body {
 
 .result-alt-title {
   font-size: 19px;
-  margin-bottom: 22px;
+  margin-bottom: 14px;
+}
+
+.result-alt-intro {
+  font-size: 14px;
+  color: #9a9a9a;
+  margin-bottom: 32px;
 }
 
 .result-alt-grid.aligned {
@@ -265,7 +296,7 @@ body {
   text-align: center;
 }
 
-/* Imagen */
+/* Imagen alternativos */
 
 .alt-image {
   width: 88px;
@@ -282,13 +313,11 @@ body {
   align-items: center;
 }
 
-/* Nombre (ancla de alineación) */
-
 .alt-text h4 {
   margin: 0 0 6px;
   font-weight: 600;
   line-height: 1.25;
-  min-height: 52px; /* clave para alinear */
+  min-height: 52px;
   text-align: center;
 }
 
@@ -301,8 +330,6 @@ body {
   color: #888;
 }
 
-/* Descripción (aire reducido, limpio) */
-
 .alt-description {
   font-size: 14.5px;
   line-height: 1.5;
@@ -310,8 +337,6 @@ body {
   margin: 0 0 12px;
   opacity: 0.85;
 }
-
-/* CTA alternativos */
 
 .alt-cta {
   font-size: 11px;
@@ -328,27 +353,82 @@ body {
 }
 
 /* =========================
-   REPETIR TEST
+   GÉNERO
    ========================= */
 
-.result-repeat {
-  margin-top: 40px;
-  padding-top: 28px;
-  text-align: center;
-  border-top: 1px solid #222;
+.gender-choice {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  justify-content: center;
 }
 
-.repeat-cta {
+.gender-button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 14px 20px;
+  cursor: pointer;
+  min-width: 220px;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.gender-button strong {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.gender-button span {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.gender-button:hover {
+  border-color: white;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.gender-button:active {
+  transform: scale(0.98);
+}
+.profile-more {
+  margin-top: 12px;
+}
+
+.profile-more summary {
   font-size: 12px;
   letter-spacing: 0.12em;
-}
-.result-family {
-  font-size: 15px;
-  color: #e6e6e6;
-  margin: 10px 0 22px;
+  color: #aaa;
+  cursor: pointer;
+  text-transform: uppercase;
 }
 
-.result-family strong {
-  font-weight: 500;
-  color: #ffffff;
+.profile-more summary:hover {
+  color: #fff;
+}
+
+.profile-more[open] summary {
+  margin-bottom: 12px;
+}
+/* Tagline del perfume principal */
+
+.result-tagline {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #b5b5b5;
+  text-align: center;
+  margin: 10px auto 18px;
+  max-width: 420px;
+}
+/* Explicación del método */
+
+.result-method {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #8f8f8f;
+  max-width: 520px;
+  margin-top: 8px;
 }
