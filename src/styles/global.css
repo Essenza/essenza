@@ -52,37 +52,6 @@ body {
   max-width: 600px;
 }
 
-.home-cta {
-  margin-top: 56px;
-  padding: 20px 52px;
-  font-size: 13px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  border: 1px solid #f5f5f5;
-  background: transparent;
-  color: #f5f5f5;
-  cursor: pointer;
-  transition:
-    background-color 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.2s ease;
-}
-
-.home-cta:hover {
-  background: #f5f5f5;
-  color: #0e0e0e;
-  border-color: #f5f5f5;
-  transform: translateY(-1px);
-}
-
-.home-meta {
-  margin-top: 28px;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  color: #777;
-}
-
 /* =========================
    TEST
    ========================= */
@@ -146,10 +115,10 @@ body {
   padding: 40px 20px 90px;
 }
 
-/* PERFIL (SUPERIOR, COMPACTO) */
+/* PERFIL SUPERIOR */
 
 .result-profile.compact {
-  margin-bottom: 32px; /* reducido para subir el perfume */
+  margin-bottom: 32px;
 }
 
 .result-eyebrow {
@@ -171,21 +140,19 @@ body {
   color: #ffffff;
 }
 
-/* TEXTO GENERAL */
-
-.result-description {
-  font-size: 16px;
-  line-height: 1.75;
-  max-width: 720px;
-  color: #b5b5b5;
-  margin-top: 12px;
+.result-method {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #8f8f8f;
+  max-width: 520px;
+  margin-top: 8px;
 }
 
-/* PERFUME PRINCIPAL (HÉROE) */
+/* PERFUME PRINCIPAL */
 
 .result-main {
   text-align: center;
-  margin-bottom: 56px; /* reducido */
+  margin-bottom: 56px;
 }
 
 .result-label {
@@ -195,8 +162,8 @@ body {
 }
 
 .result-main-image {
-  width: 190px;              /* aumentado */
-  margin: 16px auto 12px;    /* más compacto */
+  width: 190px;
+  margin: 16px auto 12px;
   display: block;
 }
 
@@ -216,7 +183,14 @@ body {
   color: #999;
 }
 
-/* CTA PRINCIPAL */
+.result-tagline {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #b5b5b5;
+  text-align: center;
+  margin: 10px auto 18px;
+  max-width: 420px;
+}
 
 .result-main-cta {
   display: inline-block;
@@ -229,39 +203,6 @@ body {
   color: #0e0e0e;
   background: #f5f5f5;
   border-radius: 2px;
-}
-
-.result-main-cta:hover {
-  opacity: 0.9;
-}
-
-/* REPETIR TEST INLINE (SECUNDARIO) */
-
-.repeat-inline {
-  margin-top: 14px;
-  background: none;
-  border: none;
-  color: #aaa;
-  cursor: pointer;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.repeat-inline:hover {
-  color: #fff;
-}
-
-/* PERFIL DETALLADO (SECUNDARIO, CON SCROLL) */
-
-.result-profile-detail {
-  margin-top: 64px;
-  opacity: 0.85;
-}
-
-.profile-text {
-  font-size: 15px; /* reducido */
-  line-height: 1.7;
 }
 
 /* =========================
@@ -277,12 +218,6 @@ body {
   margin-bottom: 14px;
 }
 
-.result-alt-intro {
-  font-size: 14px;
-  color: #9a9a9a;
-  margin-bottom: 32px;
-}
-
 .result-alt-grid.aligned {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -296,60 +231,11 @@ body {
   text-align: center;
 }
 
-/* Imagen alternativos */
-
 .alt-image {
   width: 88px;
   height: 140px;
   object-fit: contain;
   margin-bottom: 16px;
-  display: block;
-}
-
-.alt-text {
-  max-width: 240px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.alt-text h4 {
-  margin: 0 0 6px;
-  font-weight: 600;
-  line-height: 1.25;
-  min-height: 52px;
-  text-align: center;
-}
-
-.alt-separator {
-  color: #555;
-}
-
-.alt-brand-inline {
-  font-weight: 400;
-  color: #888;
-}
-
-.alt-description {
-  font-size: 14.5px;
-  line-height: 1.5;
-  color: #b5b5b5;
-  margin: 0 0 12px;
-  opacity: 0.85;
-}
-
-.alt-cta {
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #f5f5f5;
-  border-bottom: 1px solid #444;
-  padding-bottom: 3px;
-}
-
-.alt-cta:hover {
-  border-bottom-color: #777;
 }
 
 /* =========================
@@ -374,61 +260,102 @@ body {
   text-align: left;
 }
 
-.gender-button strong {
-  display: block;
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  margin-bottom: 6px;
+/* =========================
+   MOBILE (CLAVE)
+   ========================= */
+
+@media (max-width: 640px) {
+
+  /* HOME */
+  .home {
+    padding: 64px 16px;
+    min-height: auto;
+  }
+
+  .home-title {
+    font-size: 34px;
+    line-height: 1.2;
+    margin-bottom: 28px;
+  }
+
+  .gender-choice {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .gender-button {
+    min-width: 100%;
+  }
+
+  /* RESULTADOS */
+  .result {
+    padding: 28px 16px 70px;
+  }
+
+  .result-main-image {
+    width: 140px;
+  }
+
+  .result-main-name {
+    font-size: 26px;
+  }
+
+  .result-tagline {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .result-main-cta {
+    padding: 14px 22px;
+    font-size: 13px;
+  }
+
+  .result-alt-grid.aligned {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+/* =========================
+   TEST · MOBILE OPTIMIZATION
+   ========================= */
+
+@media (max-width: 640px) {
+
+  .test {
+    padding: 48px 16px;
+  }
+
+  .test small {
+    margin-bottom: 12px;
+    font-size: 11px;
+  }
+
+  .test-progress {
+    margin-bottom: 32px;
+  }
+
+  .test-progress span {
+    height: 3px;
+  }
+
+  .test h2 {
+    font-size: 22px;
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+
+  .test-options {
+    gap: 12px;
+  }
+
+  .test-option {
+    padding: 18px 20px;
+    font-size: 15px;
+  }
+
+  .test-option:active {
+    background: rgba(255, 255, 255, 0.06);
+    transform: scale(0.99);
+  }
 }
 
-.gender-button span {
-  font-size: 13px;
-  opacity: 0.7;
-}
-
-.gender-button:hover {
-  border-color: white;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.gender-button:active {
-  transform: scale(0.98);
-}
-.profile-more {
-  margin-top: 12px;
-}
-
-.profile-more summary {
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  color: #aaa;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-
-.profile-more summary:hover {
-  color: #fff;
-}
-
-.profile-more[open] summary {
-  margin-bottom: 12px;
-}
-/* Tagline del perfume principal */
-
-.result-tagline {
-  font-size: 15px;
-  line-height: 1.5;
-  color: #b5b5b5;
-  text-align: center;
-  margin: 10px auto 18px;
-  max-width: 420px;
-}
-/* Explicación del método */
-
-.result-method {
-  font-size: 13px;
-  line-height: 1.6;
-  color: #8f8f8f;
-  max-width: 520px;
-  margin-top: 8px;
-}
