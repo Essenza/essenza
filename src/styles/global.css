@@ -1,4 +1,4 @@
-/* ========================= 
+/* =========================
    RESET & BASE
    ========================= */
 
@@ -45,11 +45,69 @@ body {
   margin: 0 0 32px;
 }
 
-.home-text {
-  font-size: 18px;
-  line-height: 1.7;
-  color: #b5b5b5;
-  max-width: 600px;
+/* =========================
+   HOME · SEO TEXT
+   ========================= */
+
+.home-seo {
+  max-width: 720px;
+  margin: 3.5rem auto 0;
+  padding: 0 1rem;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.home-seo h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.home-seo p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* =========================
+   GÉNERO
+   ========================= */
+
+.gender-choice {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  justify-content: center;
+}
+
+.gender-button {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 18px 22px;
+  cursor: pointer;
+  min-width: 240px;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.gender-button strong {
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.gender-button span {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.75;
+}
+
+.gender-button:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* =========================
@@ -112,7 +170,7 @@ body {
 .result {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 40px 20px 90px;
+  padding: 40px 20px 80px;
 }
 
 /* PERFIL SUPERIOR */
@@ -132,7 +190,7 @@ body {
 .result-family {
   font-size: 15px;
   color: #e6e6e6;
-  margin: 10px 0 22px;
+  margin: 10px 0 16px;
 }
 
 .result-family strong {
@@ -141,14 +199,15 @@ body {
 }
 
 .result-method {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.6;
-  color: #8f8f8f;
-  max-width: 520px;
-  margin-top: 8px;
+  color: #9a9a9a;
+  max-width: 680px;
 }
 
-/* PERFUME PRINCIPAL */
+/* =========================
+   PERFUME PRINCIPAL
+   ========================= */
 
 .result-main {
   text-align: center;
@@ -163,23 +222,18 @@ body {
 
 .result-main-image {
   width: 190px;
-  margin: 16px auto 12px;
+  margin: 18px auto 12px;
   display: block;
 }
 
 .result-main-name {
   font-size: 32px;
-  margin: 0 0 18px;
+  margin: 0 0 10px;
   font-weight: 600;
-}
-
-.result-main-separator {
-  color: #555;
 }
 
 .result-main-brand-inline {
   font-size: 18px;
-  font-weight: 400;
   color: #999;
 }
 
@@ -194,8 +248,8 @@ body {
 
 .result-main-cta {
   display: inline-block;
-  margin-top: 22px;
-  padding: 10px 18px;
+  margin-top: 18px;
+  padding: 12px 22px;
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -206,22 +260,47 @@ body {
 }
 
 /* =========================
+   SEO RESULTADO
+   ========================= */
+
+.result-seo {
+  max-width: 720px;
+  margin: 2.5rem auto 1.5rem;
+  padding: 0 1rem;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.result-seo h2 {
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.result-seo p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* =========================
    ALTERNATIVOS
    ========================= */
 
 .result-alternatives {
-  margin-top: 48px;
+  margin-top: 56px;
 }
 
 .result-alt-title {
-  font-size: 19px;
-  margin-bottom: 14px;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .result-alt-grid.aligned {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 44px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 64px;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .alt-card.aligned {
@@ -232,50 +311,100 @@ body {
 }
 
 .alt-image {
-  width: 88px;
+  width: 90px;
   height: 140px;
   object-fit: contain;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+}
+
+.alt-text h4 {
+  margin: 0 0 6px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.alt-brand-inline {
+  font-weight: 400;
+  color: #888;
+}
+
+.alt-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #b5b5b5;
+  margin-bottom: 12px;
+}
+
+.alt-cta {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #f5f5f5;
+  border-bottom: 1px solid #444;
+  padding-bottom: 3px;
+}
+
+.alt-cta:hover {
+  border-bottom-color: #777;
 }
 
 /* =========================
-   GÉNERO
+   PÁGINA PILAR SEO
    ========================= */
 
-.gender-choice {
-  display: flex;
-  gap: 16px;
-  margin-top: 32px;
-  justify-content: center;
+.pillar {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
 }
 
-.gender-button {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  padding: 14px 20px;
-  cursor: pointer;
-  min-width: 220px;
-  transition: all 0.3s ease;
-  text-align: left;
+.pillar-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.pillar-intro {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 1rem 0 2rem;
+  opacity: 0.9;
+}
+
+.pillar-cta {
+  padding: 0.8rem 1.4rem;
+  font-size: 0.95rem;
+}
+
+.pillar-content h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.pillar-content p {
+  line-height: 1.65;
+  opacity: 0.9;
+}
+
+.pillar-final-cta {
+  margin-top: 3rem;
+  text-align: center;
 }
 
 /* =========================
-   MOBILE (CLAVE)
+   MOBILE
    ========================= */
 
 @media (max-width: 640px) {
 
-  /* HOME */
   .home {
-    padding: 64px 16px;
+    padding: 72px 16px;
     min-height: auto;
   }
 
   .home-title {
     font-size: 34px;
     line-height: 1.2;
-    margin-bottom: 28px;
   }
 
   .gender-choice {
@@ -287,9 +416,21 @@ body {
     min-width: 100%;
   }
 
-  /* RESULTADOS */
+  .test {
+    padding: 48px 16px;
+  }
+
+  .test h2 {
+    font-size: 22px;
+  }
+
+  .test-option {
+    padding: 18px 20px;
+    font-size: 15px;
+  }
+
   .result {
-    padding: 28px 16px 70px;
+    padding: 28px 16px 64px;
   }
 
   .result-main-image {
@@ -314,48 +455,24 @@ body {
     grid-template-columns: 1fr;
     gap: 36px;
   }
-}
-/* =========================
-   TEST · MOBILE OPTIMIZATION
-   ========================= */
 
-@media (max-width: 640px) {
-
-  .test {
-    padding: 48px 16px;
+  .alt-image {
+    width: 80px;
+    height: 120px;
   }
 
-  .test small {
-    margin-bottom: 12px;
-    font-size: 11px;
+  .home-seo {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
   }
 
-  .test-progress {
-    margin-bottom: 32px;
+  .home-seo h2 {
+    font-size: 1rem;
   }
 
-  .test-progress span {
-    height: 3px;
-  }
-
-  .test h2 {
-    font-size: 22px;
-    line-height: 1.3;
-    margin-bottom: 24px;
-  }
-
-  .test-options {
-    gap: 12px;
-  }
-
-  .test-option {
-    padding: 18px 20px;
-    font-size: 15px;
-  }
-
-  .test-option:active {
-    background: rgba(255, 255, 255, 0.06);
-    transform: scale(0.99);
+  .home-seo p {
+    font-size: 0.88rem;
+    line-height: 1.55;
   }
 }
-

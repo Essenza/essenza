@@ -14,6 +14,39 @@ function resolveImage(path: string) {
   return `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
 }
 
+/* =========================
+   TEXTO SEO DINÁMICO POR PERFIL
+   ========================= */
+const seoTextByProfile: Record<string, string> = {
+  intenso: `
+Este perfume encaja con una personalidad intensa, decidida y con una fuerte presencia.
+No buscas aromas discretos, sino fragancias que acompañen tu carácter y refuercen quién eres.
+Las notas profundas y persistentes crean una estela reconocible, ideal para personas que no pasan desapercibidas.
+Es una elección pensada para proyectar seguridad, magnetismo y control en momentos clave.
+  `,
+
+  elegante: `
+Este perfume refleja una personalidad elegante, equilibrada y segura de sí misma.
+Valoras fragancias bien construidas, con carácter, pero sin excesos.
+Las notas refinadas y armoniosas aportan presencia y distinción, acompañando tu estilo de forma natural.
+Es una elección coherente para quienes entienden la elegancia como una forma de expresión constante.
+  `,
+
+  misterioso: `
+Este perfume encaja con una personalidad profunda, reservada y con un punto enigmático.
+Prefieres fragancias que evolucionan poco a poco y generan curiosidad.
+Las notas oscuras y envolventes refuerzan una presencia silenciosa pero intensa.
+Es ideal para quienes no necesitan explicarse y dejan que su aroma hable por ellos.
+  `,
+
+  fresco: `
+Este perfume encaja con una personalidad natural, equilibrada y auténtica.
+Buscas fragancias limpias, agradables y versátiles, que acompañen tu día a día sin imponerse.
+Las notas frescas transmiten claridad, cercanía y coherencia.
+Una elección perfecta para quienes valoran comodidad, armonía y constancia.
+  `,
+};
+
 export default function ResultPage() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -53,30 +86,30 @@ export default function ResultPage() {
     <main className="result">
       {/* PERFIL (RESUMIDO) */}
       <section className="result-profile compact">
-      <span className="result-eyebrow">ESTA ES TU ESENCIA</span>
+        <span className="result-eyebrow">ESTA ES TU ESENCIA</span>
 
-      {profileData && (
-    <>
-      <p className="result-family">
-        Familia olfativa: <strong>{profileData.family}</strong>
-      </p>
-        <p className="result-method">
-        Te proponemos un perfume principal y dos alternativas afines,
-        para que elijas según el momento o el contexto.
-        </p>
-      <details className="profile-more">
-        <summary>Leer descripción de tu perfil</summary>
-        <p className="result-description profile-text">
-          {profileData.description}
-        </p>
-      </details>
-    </>
-      )}
+        {profileData && (
+          <>
+            <p className="result-family">
+              Familia olfativa: <strong>{profileData.family}</strong>
+            </p>
+
+            <p className="result-method">
+              Te proponemos un perfume principal y dos alternativas afines,
+              para que elijas según el momento o el contexto.
+            </p>
+
+            <details className="profile-more">
+              <summary>Leer descripción de tu perfil</summary>
+              <p className="result-description profile-text">
+                {profileData.description}
+              </p>
+            </details>
+          </>
+        )}
       </section>
 
-
-
-      {/* PERFUME PRINCIPAL (PROTAGONISTA) */}
+      {/* PERFUME PRINCIPAL */}
       <section className="result-main">
         <span className="result-label">RECOMENDADO PARA TI</span>
 
@@ -94,11 +127,10 @@ export default function ResultPage() {
           </span>
         </h1>
 
-        {/* FRASE EDITORIAL CORTA */}
+        {/* FRASE EDITORIAL */}
         <p className="result-tagline">
-        {principal.tagline}
+          {principal.tagline}
         </p>
-
 
         <a
           href={principal.amazonUrl}
@@ -109,7 +141,15 @@ export default function ResultPage() {
           DESCUBRIR ESTE PERFUME
         </a>
 
-        {/* REPETIR TEST (VISIBLE SIN SCROLL) */}
+        {/* TEXTO SEO DINÁMICO */}
+        {profileData && seoTextByProfile[profileData.id] && (
+          <section className="result-seo">
+            <h2>Por qué este perfume encaja contigo</h2>
+            <p>{seoTextByProfile[profileData.id]}</p>
+          </section>
+        )}
+
+        {/* REPETIR TEST */}
         <button
           className="repeat-inline"
           onClick={() => {
@@ -121,7 +161,7 @@ export default function ResultPage() {
         </button>
       </section>
 
-      {/* TEXTO LARGO DEL PERFIL (SECUNDARIO) */}
+      {/* TEXTO LARGO DEL PERFIL */}
       {profileData && (
         <section className="result-profile-detail">
           <h2 className="result-section-title">
@@ -141,7 +181,7 @@ export default function ResultPage() {
         </section>
       )}
 
-      {/* ALTERNATIVOS */}
+      {/* PERFUMES ALTERNATIVOS */}
       {secundarios.length > 0 && (
         <section className="result-alternatives">
           <h2 className="result-alt-title">
