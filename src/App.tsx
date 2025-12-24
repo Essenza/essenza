@@ -7,6 +7,7 @@ import HombrePage from "./pages/HombrePage";
 import MujerPage from "./pages/MujerPage";
 import TestPage from "./pages/TestPage";
 import ResultPage from "./pages/ResultPage";
+import PerfumePersonalidadPage from "./pages/PerfumePersonalidadPage";
 
 import type { TestResult } from "./logic/profileEngine";
 
@@ -41,6 +42,12 @@ export default function App() {
 
       {/* RESULTADO */}
       <Route path="/resultado" element={<ResultPage />} />
+
+      {/* PÁGINA PILAR SEO */}
+      <Route
+        path="/perfume-segun-personalidad"
+        element={<PerfumePersonalidadPage />}
+      />
     </Routes>
   );
 }
